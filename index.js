@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 //Setting up routing
 require('./routes')(app)
 app.get("*", (req, res) => res.status(200).send({
-  message: "Welcome to blank page.",
+  message: "Welcome to the planeat API.",
 }))
 
 const startServer = async () => {
