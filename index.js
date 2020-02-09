@@ -2,7 +2,6 @@ require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
 const { promisify } = require('util')
-const functions = require('firebase-functions')
 
 // const authMiddleware = require('./auth')
 
