@@ -31,7 +31,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     date: {
       type: DataTypes.DATEONLY,
-      allowNull: false
+      allowNull: false,
+      primaryKey: true
     }
   }, {
     tableName: 'User_Plans_Recipe'

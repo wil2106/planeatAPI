@@ -23,7 +23,6 @@ module.exports = function(sequelize, DataTypes) {
     quantitytype_name: {
       type: DataTypes.STRING(50),
       allowNull: false,
-      primaryKey: true,
       references: {
         model: 'QuantityTypes',
         key: 'quantitytype_name'
