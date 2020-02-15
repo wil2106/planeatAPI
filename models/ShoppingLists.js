@@ -28,6 +28,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   }, {
-    tableName: 'ShoppingLists'
+    tableName: 'ShoppingLists', 
+    timestamps: false
   });
 };

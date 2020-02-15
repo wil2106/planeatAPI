@@ -33,6 +33,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   }, {
-    tableName: 'Recipe_Contains_Product'
+    tableName: 'Recipe_Contains_Product', 
+    timestamps: false
   });
 };

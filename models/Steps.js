@@ -24,6 +24,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   }, {
-    tableName: 'Steps'
+    tableName: 'Steps', 
+    timestamps: false
   });
 };

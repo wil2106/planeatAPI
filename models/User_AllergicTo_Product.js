@@ -21,6 +21,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   }, {
-    tableName: 'User_AllergicTo_Product'
+    tableName: 'User_AllergicTo_Product', 
+    timestamps: false
   });
 };
