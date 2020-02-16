@@ -5,10 +5,9 @@ const Product = require('../models').Products
 
 const Sequelize = require('sequelize')
 
-Ingredients.hasOne(Product, {foreignKey: 'product_id', as: 'product'})
-//Product.hasMany(Ingredients, {foreignKey: 'product_id', as: 'details'})
 Recipe.hasMany(Ingredients, {foreignKey: 'recipe_id', as: 'ingredients'})
 Recipe.hasMany(Steps, {foreignKey: 'recipe_id', as: 'steps'})//ok
+Ingredients.belongsTo(Product, {foreignKey: 'product_id', as: 'product'})
 
 var op = Sequelize.Op
 
@@ -49,39 +48,17 @@ module.exports = {
     },
     async getRecipeDetails(req, res) {
         const {recipe_id} = req.params;
-
-        /*var p = Product.findAll({attributes: ['product_name'],
-        include: { model:Ingredients, as: 'details', 
-            attributes: ['quantity', 'quantitytype_name'],
-            where: {recipe_id:recipe_id}}})
-        */
-       
-        /*return Recipe
-        .findAll({
-            attributes: ['recipe_name','recipe_nb_servings','recipe_prep_time',
-            'recipe_description'],
-            include: {
-                model: Product, as: 'products', 
-                attributes: ['product_name'],
-                include: { 
-                    model:Ingredients, as: 'details', 
-                    attributes: ['quantity', 'quantitytype_name'],
-                    where: {recipe_id:recipe_id}
-                }
-            }
-        })*/
         return Recipe
         .findAll({
             attributes: ['recipe_name', 'recipe_nb_servings',
             'recipe_prep_time', 'recipe_description'],
-            where: { recipe_id:recipe_id }, // due to that condition
+            where: { recipe_id:recipe_id }, 
             include: [{
-                model:Ingredients, as: 'ingredients', 
-                attributes: ['product_id', 'quantity', 'quantitytype_name'],
+                model:Ingredients, as: 'ingredients',
+                attributes: ['quantity', 'quantitytype_name'],
                 include: [{
-                    model:Product, as: 'product'
-                    // issue not solved: ingredients.recipe_id = product.product_id
-                    // must find a way to have: ingredients.product_id = product.product_id
+                    model:Product, as: 'product',
+                    attributes: ['product_name']
             }]},
                 {model:Steps, as: 'steps', 
                 attributes: ['step_order_number', 'step_description']}]
