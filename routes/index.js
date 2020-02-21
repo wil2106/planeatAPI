@@ -14,22 +14,22 @@ module.exports = (app) => {
         message: 'Welcome to the new API.',
     }))
 
-    app.get('/register', (req, res) => res.status(200).send({
-        message: 'Register route',
-    }))
+    // app.get('/register', (req, res) => res.status(200).send({
+    //     message: 'Register route',
+    // }))
 
-    app.post('/register', async (req, res) => {
-        try
-        {
-            const application = awaitClient.createApplication({})
-        } catch (error) {
-            res.json({error: error.message})
-        }
-    })
+    // app.post('/register', async (req, res) => {
+    //     try
+    //     {
+    //         const application = awaitClient.createApplication({})
+    //     } catch (error) {
+    //         res.json({error: error.message})
+    //     }
+    // })
     //Add routing for all routes
-    app.use('/products', productRoutes);
-    app.use('/recipes', recipeRoutes);
-    app.use('/planning', planningRoutes);
+    app.use('/products', app.oauth.authorise(), productRoutes);
+    app.use('/recipes', app.oauth.authorise(), recipeRoutes);
+    app.use('/planning', app.oauth.authorise(), planningRoutes);
 
 
     //User section
