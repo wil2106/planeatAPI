@@ -1,4 +1,5 @@
 const productRoutes = require('./products')
+const usersRoutes = require('./users')
 // const okta = require('@okta/okta-sdk-nodejs');
 // const oktaClient = new okta.Client({
 //     orgUrl: process.env.ORG_URL,
@@ -26,6 +27,8 @@ module.exports = (app) => {
     })
     //Add routing for product routes
     app.use('/products', productRoutes);
+    //Add routing for profile routes
+    app.use('/users', usersRoutes);
 
 
     //User section
