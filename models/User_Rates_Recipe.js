@@ -25,6 +25,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   }, {
-    tableName: 'User_Rates_Recipe'
+    tableName: 'User_Rates_Recipe', 
+    timestamps: false
   });
 };

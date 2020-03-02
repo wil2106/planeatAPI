@@ -47,6 +47,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   }, {
-    tableName: 'Market_Sell_Product'
+    tableName: 'Market_Sell_Product', 
+    timestamps: false
   });
 };

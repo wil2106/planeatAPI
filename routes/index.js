@@ -1,4 +1,6 @@
 const productRoutes = require('./products')
+const recipeRoutes = require('./recipes')
+const planningRoutes = require('./planning')
 // const okta = require('@okta/okta-sdk-nodejs');
 // const oktaClient = new okta.Client({
 //     orgUrl: process.env.ORG_URL,
@@ -12,20 +14,22 @@ module.exports = (app) => {
         message: 'Welcome to the new API.',
     }))
 
-    app.get('/register', (req, res) => res.status(200).send({
-        message: 'Register route',
-    }))
+    // app.get('/register', (req, res) => res.status(200).send({
+    //     message: 'Register route',
+    // }))
 
-    app.post('/register', async (req, res) => {
-        try
-        {
-            const application = awaitClient.createApplication({})
-        } catch (error) {
-            res.json({error: error.message})
-        }
-    })
-    //Add routing for product routes
-    app.use('/products', productRoutes);
+    // app.post('/register', async (req, res) => {
+    //     try
+    //     {
+    //         const application = awaitClient.createApplication({})
+    //     } catch (error) {
+    //         res.json({error: error.message})
+    //     }
+    // })
+    //Add routing for all routes
+    app.use('/products', app.oauth.authorise(), productRoutes);
+    app.use('/recipes', app.oauth.authorise(), recipeRoutes);
+    app.use('/planning', app.oauth.authorise(), planningRoutes);
 
 
     //User section

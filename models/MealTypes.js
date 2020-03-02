@@ -8,6 +8,7 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true
     }
   }, {
-    tableName: 'MealTypes'
+    tableName: 'MealTypes', 
+    timestamps: false
   });
 };

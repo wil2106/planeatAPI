@@ -35,6 +35,7 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true
     }
   }, {
-    tableName: 'User_Plans_Recipe'
+    tableName: 'User_Plans_Recipe', 
+    timestamps: false
   });
 };

@@ -34,6 +34,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   }, {
-    tableName: 'ShoppingList_Contains_Product'
+    tableName: 'ShoppingList_Contains_Product', 
+    timestamps: false
   });
 };
