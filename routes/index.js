@@ -1,5 +1,8 @@
 const productRoutes = require('./products')
+const recipeRoutes = require('./recipes')
+const planningRoutes = require('./planning')
 const usersRoutes = require('./users')
+
 // const okta = require('@okta/okta-sdk-nodejs');
 // const oktaClient = new okta.Client({
 //     orgUrl: process.env.ORG_URL,
@@ -25,8 +28,10 @@ module.exports = (app) => {
             res.json({error: error.message})
         }
     })
-    //Add routing for product routes
+    //Add routing for all routes
     app.use('/products', productRoutes);
+    app.use('/recipes', recipeRoutes);
+    app.use('/planning', planningRoutes);
     //Add routing for profile routes
     app.use('/users', usersRoutes);
 
