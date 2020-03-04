@@ -8,16 +8,16 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true
     },
     shoppinglist_name: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING(200),
       allowNull: false
     },
     shoppinglist_start_date: {
       type: DataTypes.DATEONLY,
-      allowNull: true
+      allowNull: false
     },
     shoppinglist_end_date: {
       type: DataTypes.DATEONLY,
-      allowNull: true
+      allowNull: false
     },
     user_id: {
       type: DataTypes.INTEGER(11),
@@ -28,7 +28,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   }, {
-    tableName: 'ShoppingLists', 
+    tableName: 'ShoppingLists',
     timestamps: false
   });
 };
