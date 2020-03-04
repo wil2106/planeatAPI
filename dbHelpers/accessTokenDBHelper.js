@@ -10,7 +10,8 @@ module.exports = injectedMySqlConnection => {
 }
 
 const saveAccessToken = (accessToken, userID, callback) => {
-    const getUserQuery = `INSERT INTO access_tokens (access_token, userID) VALUES ("${accessToken}", ${userID}) ON DUPLICATE KEY UPDATE access_token = "${accessToken}";`
+    const getUserQuery = `UPDATE Users SET user_token='${accessToken}' WHERE Users.user_id=${userID}`
+    console.log(getUserQuery)
 
     mySqlConnection.query(getUserQuery, (dataResponseObject) => {
         callback(dataResponseObject.error)
@@ -18,10 +19,10 @@ const saveAccessToken = (accessToken, userID, callback) => {
 }
 
 const getUserIDFromBearerToken = (bearerToken, callback) => {
-    const getUserIDQuery = `SELECT * FROM access_tokens WHERE access_token = '${bearerToken}';`
+    const getUserIDQuery = `SELECT * FROM Users WHERE user_token='${bearerToken}'`
 
     mySqlConnection.query(getUserIDQuery, (dataResponseObject) => {
-        const userID = dataResponseObject.results != null && dataResponseObject.results.length == 1 ? dataResponseObject.results[0].userID : null
+        const userID = dataResponseObject.results !== null && dataResponseObject.results.length === 1 ? dataResponseObject.results[0].user_id : null
 
         callback(userID)
     })

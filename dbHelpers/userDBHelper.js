@@ -10,16 +10,17 @@ module.exports = injectedMySqlConnection => {
     }
 }
 
-const registeredUserInDB = (username, password, registrationCallback) => {
-    const registerUserQuery = `INSERT INTO users (username, password) VALUES ('${username}', SHA('${password}'))`
+const registeredUserInDB = (mail, password, premium, registrationCallback) => {
+    const registerUserQuery = `INSERT INTO Users (user_id, user_mail, user_password, user_ispremium, user_token) 
+        VALUES (NULL, '${mail}', SHA('${password}'), '${premium}', '')`
 
     //execute the query to register the user
     mySqlConnection.query(registerUserQuery, registrationCallback)
 }
 
-const getUserFromCredentials = async (username, password, callback) => {
+const getUserFromCredentials = async (mail, password, callback) => {
     //create query using the data in the req.body to register the user in the db
-    const getUserQuery = `SELECT * FROM users WHERE username = '${username}' AND password = SHA('${password}')`
+    const getUserQuery = `SELECT * FROM Users WHERE user_mail = '${mail}' AND user_password = SHA('${password}')`
 
     console.log('getUserFromCrentials query is: ', getUserQuery);
 
@@ -30,8 +31,8 @@ const getUserFromCredentials = async (username, password, callback) => {
     })
 }
 
-const doesUserExist = (username, callback) => {
-    const doesUserExistQuery = `SELECT * FROM users WHERE username= '${username}'`
+const doesUserExist = (mail, callback) => {
+    const doesUserExistQuery = `SELECT * FROM Users WHERE user_mail= '${mail}'`
 
     const sqlCallBack = (dataResponseObject) => {
         const doesUserExist = dataResponseObject.results !== null ? dataResponseObject.results.length > 0 ? true : false : null

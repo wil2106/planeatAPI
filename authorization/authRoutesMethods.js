@@ -1,3 +1,5 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable no-eq-null */
 let userDBHelper
 
 module.exports = injectedUserDBHelper => {
@@ -14,7 +16,7 @@ function registerUser(req, res) {
     console.log(`authRoutesMethods: registerUser: req.body is:`, req.body);
 
     //query db to see if the user exists already
-    userDBHelper.doesUserExist(req.body.username, (sqlError, doesUserExist) => {
+    userDBHelper.doesUserExist(req.body.mail, (sqlError, doesUserExist) => {
 
         //check if the user exists
         if (sqlError !== null || doesUserExist) {
@@ -31,7 +33,7 @@ function registerUser(req, res) {
         }
 
         //register the user in the db
-        userDBHelper.registeredUserInDB(req.body.username, req.body.password, dataResponseObject => {
+        userDBHelper.registeredUserInDB(req.body.mail, req.body.password, req.body.premium, dataResponseObject => {
 
             //create message for the api response
             const message = dataResponseObject.error === null ? "Registration was successful" : "Failed to register user"
@@ -42,7 +44,7 @@ function registerUser(req, res) {
 }
 
 function sendResponse(res, message, error) {
-    res.status(error != null ? error != null ? 400 : 200 : 400)
+    res.status(error !== null ? 400 : 200)
         .json({
             'message': message,
             'error': error,
@@ -50,7 +52,7 @@ function sendResponse(res, message, error) {
 }
 
 function isString(parameter) {
-    return parameter != null && (typeof parameter === 'string' || parameter instanceof String) ? true : false
+    return parameter !== null && (typeof parameter === 'string' || parameter instanceof String) ? true : false
 }
 
 function login(req, res) {
