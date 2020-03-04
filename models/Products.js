@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   }, {
-    tableName: 'Products', 
+    tableName: 'Products',
     timestamps: false
   });
 };

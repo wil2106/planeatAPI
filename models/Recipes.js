@@ -11,25 +11,21 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(200),
       allowNull: false
     },
+    recipe_type: {
+      type: DataTypes.STRING(50),
+      allowNull: true
+    },
     recipe_description: {
       type: DataTypes.STRING(1000),
       allowNull: true
     },
     recipe_nb_servings: {
       type: DataTypes.INTEGER(11),
-      allowNull: true
+      allowNull: false
     },
     recipe_prep_time: {
       type: DataTypes.INTEGER(11),
-      allowNull: true
-    },
-    user_id: {
-      type: DataTypes.INTEGER(11),
-      allowNull: true,
-      references: {
-        model: 'Users',
-        key: 'user_id'
-      }
+      allowNull: false
     }
   }, {
     tableName: 'Recipes',

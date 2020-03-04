@@ -2,13 +2,17 @@
 
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('MealTypes', {
-    mealtype_name: {
-      type: DataTypes.STRING(100),
+    mealtype_id: {
+      type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true
+    },
+    mealtype_name: {
+      type: DataTypes.STRING(100),
+      allowNull: false
     }
   }, {
-    tableName: 'MealTypes', 
+    tableName: 'MealTypes',
     timestamps: false
   });
 };

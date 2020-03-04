@@ -1,7 +1,7 @@
 const Planning = require('../models').User_Plans_Recipe;
 const Recipe = require('../models').Recipes;
 
-Recipe.hasMany(Planning, {foreignKey: 'recipe_id', as: 'planning'})
+// Recipe.hasMany(Planning, {foreignKey: 'recipe_id', as: 'planning'})
 
 module.exports = {
     async getPlannedRecipesByUser(req, res) {

@@ -1,11 +1,23 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Market_Sell_Product', {
+  return sequelize.define('Articles', {
+    article_id: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      primaryKey: true
+    },
+    quantitytype_id: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      references: {
+        model: 'QuantityTypes',
+        key: 'quantitytype_id'
+      }
+    },
     product_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true,
       references: {
         model: 'Products',
         key: 'product_id'
@@ -14,40 +26,29 @@ module.exports = function(sequelize, DataTypes) {
     market_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true,
       references: {
         model: 'Markets',
         key: 'market_id'
       }
     },
-    brand_name: {
-      type: DataTypes.STRING(100),
-      allowNull: false,
-      primaryKey: true,
-      references: {
-        model: 'Brand',
-        key: 'brand_name'
-      }
-    },
-    quantity: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-      primaryKey: true
-    },
-    quantitytype_name: {
-      type: DataTypes.STRING(50),
+    brand_id: {
+      type: DataTypes.INTEGER(11),
       allowNull: false,
       references: {
-        model: 'QuantityTypes',
-        key: 'quantitytype_name'
+        model: 'Brands',
+        key: 'brand_id'
       }
     },
     price: {
       type: DataTypes.FLOAT,
       allowNull: false
+    },
+    quantity: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false
     }
   }, {
-    tableName: 'Market_Sell_Product', 
+    tableName: 'Articles',
     timestamps: false
   });
 };

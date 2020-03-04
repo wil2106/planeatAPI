@@ -8,11 +8,11 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true
     },
     market_name: {
-      type: DataTypes.STRING(50),
+      type: DataTypes.STRING(100),
       allowNull: false
     }
   }, {
-    tableName: 'Markets', 
+    tableName: 'Markets',
     timestamps: false
   });
 };

@@ -9,11 +9,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     step_order_number: {
       type: DataTypes.INTEGER(11),
-      allowNull: true
+      allowNull: false
     },
     step_description: {
       type: DataTypes.STRING(1000),
-      allowNull: true
+      allowNull: false
     },
     recipe_id: {
       type: DataTypes.INTEGER(11),
@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   }, {
-    tableName: 'Steps', 
+    tableName: 'Steps',
     timestamps: false
   });
 };

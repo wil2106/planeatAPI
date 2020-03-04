@@ -5,9 +5,9 @@ const Product = require('../models').Products
 
 const Sequelize = require('sequelize')
 
-Recipe.hasMany(Ingredients, {foreignKey: 'recipe_id', as: 'ingredients'})
-Recipe.hasMany(Steps, {foreignKey: 'recipe_id', as: 'steps'})//ok
-Ingredients.belongsTo(Product, {foreignKey: 'product_id', as: 'product'})
+// Recipe.hasMany(Ingredients, {foreignKey: 'recipe_id', as: 'ingredients'})
+// Recipe.hasMany(Steps, {foreignKey: 'recipe_id', as: 'steps'})//ok
+// Ingredients.belongsTo(Product, {foreignKey: 'product_id', as: 'product'})
 
 var op = Sequelize.Op
 

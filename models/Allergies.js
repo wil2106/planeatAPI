@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('User_AllergicTo_Product', {
+  return sequelize.define('Allergies', {
     product_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   }, {
-    tableName: 'User_AllergicTo_Product', 
+    tableName: 'Allergies',
     timestamps: false
   });
 };
