@@ -49,7 +49,7 @@ const saveAccessToken = (accessToken, clientID, expires, user, callback) => {
         ' and clientID is: ', clientID, ' and user is: ', user, ' and accessTokenDBhelper is: ', accessTokenDBHelper)
 
     //save the accessToken along with the user.id
-    accessTokenDBHelper.saveAccessToken(accessToken, user.id, callback)
+    accessTokenDBHelper.saveAccessToken(accessToken, user.user_id, callback)
 }
 
 const getAccessToken = (bearerToken, callback) => {
