@@ -17,6 +17,8 @@ __premium__ | 0 or 1 (not secured at all, TODO: make it only modifiable internal
 
 Return 200: OK, 400:Error
 
+![Register](https://imgur.com/78xlzj6)
+
 ### Login
 >POST - /auth/login  
 Headers: 'content-type' = application/json
