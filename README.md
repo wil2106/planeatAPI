@@ -2,6 +2,12 @@
 
 PLAN EAT API FOR GOOGLE CLOUD
 
+## Running the server on local
+>>> npm install  
+>>> npm start
+
+Listening on port: 3000
+
 ## OAuth procedures
 
 ### Register User
