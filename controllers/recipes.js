@@ -21,16 +21,16 @@ module.exports = {
     async getRecipeByKeyword(req, res){
         const {keyword} = req.params;
         return Recipe
-        .findAll({ 
+        .findAll({
             attributes: ['recipe_name', 'recipe_nb_servings',
             'recipe_prep_time', 'recipe_description'],
             where: {
                 [op.or]: [{
                     recipe_name: {
-                        [op.like] : '%'+keyword+'%' 
+                        [op.like] : '%'+keyword+'%'
                     }},
                     {recipe_description: {
-                        [op.like] : '%'+keyword+'%' 
+                        [op.like] : '%'+keyword+'%'
                     }}
                 ]}
         })
@@ -52,7 +52,7 @@ module.exports = {
         .findAll({
             attributes: ['recipe_name', 'recipe_nb_servings',
             'recipe_prep_time', 'recipe_description'],
-            where: { recipe_id:recipe_id }, 
+            where: { recipe_id:recipe_id },
             include: [{
                 model:Ingredients, as: 'ingredients',
                 attributes: ['quantity', 'quantitytype_name'],
@@ -60,7 +60,7 @@ module.exports = {
                     model:Product, as: 'product',
                     attributes: ['product_name']
             }]},
-                {model:Steps, as: 'steps', 
+                {model:Steps, as: 'steps',
                 attributes: ['step_order_number', 'step_description']}]
         })
         .then(recipe => res.status(200).json(recipe))
