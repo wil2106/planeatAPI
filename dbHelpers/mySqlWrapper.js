@@ -3,7 +3,9 @@ const mysql = require('mysql2')
 let connection = null
 
 const initConnection = () => {
-    connection = mysql.createConnection({
+    connection = mysql.createPool({
+        connectionLimit: 10, //important,
+        "socketPath": "/cloudsql/planeat-nodejs-backend:europe-west1:planeat-my-sql-instance",
         // host: 'remotemysql.com',
         // user: '5XNzHryt72',
         // password: 'w9Pq7D4il6',
@@ -12,10 +14,9 @@ const initConnection = () => {
         username: "will2106",
         password: "6995",
         database: "planeat_db",
-        host: "/cloudsql/planeat-nodejs-backend:europe-west1:planeat-my-sql-instance",
-        "dialectOptions": {
-            "socketPath": "/cloudsql/planeat-nodejs-backend:europe-west1:planeat-my-sql-instance"
-        },
+        // "dialectOptions": {
+        //     "socketPath": "/cloudsql/planeat-nodejs-backend:europe-west1:planeat-my-sql-instance"
+        // },
         dialect: "mysql"
     })
 }
