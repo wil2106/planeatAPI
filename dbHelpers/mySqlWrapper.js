@@ -18,7 +18,8 @@ const initConnection = () => {
         "dialectOptions": {
             "socketPath": "/cloudsql/planeat-nodejs-backend:europe-west1:planeat-my-sql-instance"
         },
-        dialect: "mysql"
+        dialect: "mysql",
+        debug: false
     })
 }
 

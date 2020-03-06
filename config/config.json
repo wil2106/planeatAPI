@@ -9,7 +9,8 @@
       "socketPath": "/cloudsql/planeat-nodejs-backend:europe-west1:planeat-my-sql-instance"
     },
     "dialect": "mysql",
-    "operatorsAliases": false
+    "operatorsAliases": false,
+    "debug": false
   },
   "test": {
     "username": "5XNzHryt72",
