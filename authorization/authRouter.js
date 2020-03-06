@@ -1,8 +1,4 @@
 module.exports = (router, app, authRoutesMethods) => {
-    router.post('/registerUser', authRoutesMethods.registerUser)
-
-    // router.post('/login', app.oauth.grant(), authRoutesMethods.login)
-
     //trick to allow json requests
     var allowJson = function (req, res, next) {
         if (req.is('json'))
@@ -11,10 +7,8 @@ module.exports = (router, app, authRoutesMethods) => {
 
         next();
     };
-
+    router.post('/registerUser', authRoutesMethods.registerUser)
     router.post('/login', allowJson, app.oauth.grant());
-
-    // const secretRoute = require('./../secretArea/secretRoute')(router, app)
 
     return router
 }

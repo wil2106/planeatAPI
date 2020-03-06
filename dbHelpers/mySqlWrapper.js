@@ -4,15 +4,19 @@ let connection = null
 
 const initConnection = () => {
     connection = mysql.createConnection({
-        // host: process.env.DB_HOST,
-        // user: process.env.DB_USER,
-        // password: process.env.DB_PASSWORD,
-        // database: process.env.DB_DATABASE,
-        host: 'remotemysql.com',
-        user: '5XNzHryt72',
-        password: 'w9Pq7D4il6',
-        database: '5XNzHryt72',
-        port: 3306
+        // host: 'remotemysql.com',
+        // user: '5XNzHryt72',
+        // password: 'w9Pq7D4il6',
+        // database: '5XNzHryt72',
+        // port: 3306
+        username: "will2106",
+        password: "6995",
+        database: "planeat_db",
+        host: "/cloudsql/planeat-nodejs-backend:europe-west1:planeat-my-sql-instance",
+        "dialectOptions": {
+            "socketPath": "/cloudsql/planeat-nodejs-backend:europe-west1:planeat-my-sql-instance"
+        },
+        dialect: "mysql"
     })
 }
 

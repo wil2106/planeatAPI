@@ -27,12 +27,6 @@ const getClient = (clientID, clientSecret, callback) => {
 }
 
 const getUser = (username, password, callback) => {
-    // userDBHelper.getUserFromCredentials(username, password)
-    //     .then(user => {
-    //         console.log(user)
-    //         callback(false, user)
-    //     })
-    //     .catch(error => callback(error, null))
     userDBHelper.getUserFromCredentials(username, password, callback)
 }
 
@@ -42,9 +36,6 @@ const grantTypeAllowed = (clientID, grantType, callback) => {
 }
 
 const saveAccessToken = (accessToken, clientID, expires, user, callback) => {
-    // accessTokenDBHelper.saveAccessToken(accessToken, user.id)
-    //     .then(() => callback(null))
-    //     .catch(error => callback(error))
     console.log('saveAccessToken() called and accessToken is: ', accessToken,
         ' and clientID is: ', clientID, ' and user is: ', user, ' and accessTokenDBhelper is: ', accessTokenDBHelper)
 
