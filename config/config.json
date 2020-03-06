@@ -1,41 +1,26 @@
 {
   "development": {
-    "connectionLimit": 10,
-    "username": "will2106",
-    "password": "6995",
-    "database": "planeat_db",
-    "socketPath": "/cloudsql/planeat-nodejs-backend:europe-west1:planeat-my-sql-instance",
-    "dialectOptions": {
-      "socketPath": "/cloudsql/planeat-nodejs-backend:europe-west1:planeat-my-sql-instance"
-    },
+    "username": "5XNzHryt72",
+    "password": "w9Pq7D4il6",
+    "database": "5XNzHryt72",
+    "host": "remotemysql.com",
     "dialect": "mysql",
-    "operatorsAliases": false,
-    "debug": false
+    "operatorsAliases": false
   },
   "test": {
-    "connectionLimit": 10,
-    "username": "will2106",
-    "password": "6995",
-    "database": "planeat_db",
-    "socketPath": "/cloudsql/planeat-nodejs-backend:europe-west1:planeat-my-sql-instance",
-    "dialectOptions": {
-      "socketPath": "/cloudsql/planeat-nodejs-backend:europe-west1:planeat-my-sql-instance"
-    },
+    "username": "5XNzHryt72",
+    "password": "w9Pq7D4il6",
+    "database": "5XNzHryt72",
+    "host": "remotemysql.com",
     "dialect": "mysql",
-    "operatorsAliases": false,
-    "debug": false
+    "operatorsAliases": false
   },
   "production": {
-    "connectionLimit": 10,
-    "username": "will2106",
-    "password": "6995",
-    "database": "planeat_db",
-    "socketPath": "/cloudsql/planeat-nodejs-backend:europe-west1:planeat-my-sql-instance",
-    "dialectOptions": {
-      "socketPath": "/cloudsql/planeat-nodejs-backend:europe-west1:planeat-my-sql-instance"
-    },
+    "username": "5XNzHryt72",
+    "password": "w9Pq7D4il6",
+    "database": "5XNzHryt72",
+    "host": "remotemysql.com",
     "dialect": "mysql",
-    "operatorsAliases": false,
-    "debug": false
+    "operatorsAliases": false
   }
 }
