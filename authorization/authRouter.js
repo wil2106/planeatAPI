@@ -7,7 +7,7 @@ module.exports = (router, app, authRoutesMethods) => {
 
         next();
     };
-    router.post('/registerUser', authRoutesMethods.registerUser)
+    router.post('/registerUser', allowJson, authRoutesMethods.registerUser)
     router.post('/login', allowJson, app.oauth.grant());
 
     return router
