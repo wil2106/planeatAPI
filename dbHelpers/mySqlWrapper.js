@@ -14,9 +14,10 @@ const initConnection = () => {
         username: "will2106",
         password: "6995",
         database: "planeat_db",
-        // "dialectOptions": {
-        //     "socketPath": "/cloudsql/planeat-nodejs-backend:europe-west1:planeat-my-sql-instance"
-        // },
+        host: "/cloudsql/planeat-nodejs-backend:europe-west1:planeat-my-sql-instance",
+        "dialectOptions": {
+            "socketPath": "/cloudsql/planeat-nodejs-backend:europe-west1:planeat-my-sql-instance"
+        },
         dialect: "mysql"
     })
 }
