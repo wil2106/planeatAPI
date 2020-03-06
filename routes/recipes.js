@@ -11,6 +11,7 @@ router.get('/', controllers.recipe.getAllRecipes)
 router.get('/search/keyword=:keyword', controllers.recipe.getRecipeByKeyword)
 router.get('/:recipe_id', controllers.recipe.getRecipeByID)
 router.get('/:recipe_id/details', controllers.recipe.getRecipeDetails)
+router.post('/:recipe_id/rate', controllers.recipe.rateRecipe)
 router.get('/info', (req, res) => res.status(200).send({
     message: "Recipe info route"
 }))

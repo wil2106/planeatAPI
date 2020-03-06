@@ -1,7 +1,8 @@
 const Recipe = require('../models').Recipes;
-const Ingredients = require('../models').Recipe_Contains_Product
+const Ingredients = require('../models').Ingredients
 const Steps = require('../models').Steps
 const Product = require('../models').Products
+const Rating = require('../models').Ratings
 
 const Sequelize = require('sequelize')
 
@@ -15,11 +16,11 @@ module.exports = {
     async getAllRecipes(req, res) {
         return Recipe
         .findAll({raw: true})
-        .then(recipe => res.status(200).json(recipe))
+        .then(success => res.status(200).json(success))
         .catch(error => res.status(400).json(error.message))
     },
     async getRecipeByKeyword(req, res){
-        const {keyword} = req.params;
+        const { keyword } = req.params
         return Recipe
         .findAll({
             attributes: ['recipe_name', 'recipe_nb_servings',
@@ -34,20 +35,20 @@ module.exports = {
                     }}
                 ]}
         })
-        .then(recipe => res.status(200).json(recipe))
+        .then(success => res.status(200).json(success))
         .catch(error => res.status(400).json(error.message))
     },
     async getRecipeByID(req, res) {
-        const {recipe_id} = req.params;
+        const { recipe_id } = req.params
         return Recipe
         .findAll({
-            where: { recipe_id:recipe_id }
+            where: { recipe_id : recipe_id }
         })
-        .then(recipe => res.status(200).json(recipe))
+        .then(success => res.status(200).json(success))
         .catch(error => res.status(400).json(error.message))
     },
     async getRecipeDetails(req, res) {
-        const {recipe_id} = req.params;
+        const { recipe_id } = req.params
         return Recipe
         .findAll({
             attributes: ['recipe_name', 'recipe_nb_servings',
@@ -63,7 +64,19 @@ module.exports = {
                 {model:Steps, as: 'steps',
                 attributes: ['step_order_number', 'step_description']}]
         })
-        .then(recipe => res.status(200).json(recipe))
+        .then(success => res.status(200).json(success))
+        .catch(error => res.status(400).json(error.message))
+    },
+    async rateRecipe(req, res) {
+        const { recipe_id } = req.params
+        const { user_id, rate } = req.body
+        return Rating
+        .create({
+            recipe_id: recipe_id,
+            user_id: user_id,
+            rate: rate
+        })
+        .then(success => res.status(200).json(success))
         .catch(error => res.status(400).json(error.message))
     }
 }
