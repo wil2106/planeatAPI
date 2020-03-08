@@ -21,7 +21,7 @@
     "dialect": "mysql",
     "operatorsAliases": false
   },
-  "small": {
+  "production": {
     "host": "db4free.net",
     "port": 3306,
     "username": "wil2106",
