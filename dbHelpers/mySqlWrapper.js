@@ -15,19 +15,24 @@ const initConnection = () => {
 }
 
 const query = (queryString, callback) => {
-    initConnection()
+    try {
+        initConnection()
 
-    connection.connect()
+        connection.connect()
 
-    console.log(connection !== null ? 'Connected' : 'Not connected.')
+        console.log(connection !== null ? 'Connected' : 'Not connected.')
 
-    connection.query(queryString, (error, results, fields) => {
-        console.log('mySql: query: error is: ', error, ' and results are: ', results);
+        connection.query(queryString, (error, results, fields) => {
+            console.log('mySql: query: error is: ', error, ' and results are: ', results);
 
-        connection.end();
+            connection.end();
 
-        callback(createDataResponseObject(error, results))
-    })
+            callback(createDataResponseObject(error, results))
+        })
+    } catch (err) {
+        console.error(err)
+    }
+
 }
 
 const createDataResponseObject = (error, results) => {
