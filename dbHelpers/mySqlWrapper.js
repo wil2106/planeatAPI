@@ -1,5 +1,5 @@
 const mysql = require('mysql2')
-const env = process.env.NODE_ENV || 'test';
+const env = process.env.NODE_ENV || 'production';
 const config = require(__dirname + '/../config/config.json')[env];
 
 let connection = null

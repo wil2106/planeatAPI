@@ -37,5 +37,12 @@
       "acquire": 30000,
       "idle": 10000
     }
+  },
+  "small": {
+    "host": "db4free.net",
+    "port": 3306,
+    "username": "wil2106",
+    "password": "planeat6695",
+    "database": "planteat"
   }
 }
