@@ -42,7 +42,14 @@
     "host": "db4free.net",
     "port": 3306,
     "username": "wil2106",
-    "password": "planeat6695",
-    "database": "planteat"
+    "password": "planeat6995",
+    "database": "planeat",
+    "dialect": "mysql",
+    "pool": {
+      "max": 10,
+      "min": 0,
+      "acquire": 30000,
+      "idle": 10000
+    }
   }
 }

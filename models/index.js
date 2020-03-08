@@ -18,10 +18,10 @@ if (config.use_env_variable) {
     config.password, {
       dialect: 'mysql',
       host: config.host,
-      dialectOptions: {
-        socketPath: config.dialectOptions.socketPath
-      },
-      pool: config.pool
+      // dialectOptions: {
+      //   socketPath: config.dialectOptions.socketPath
+      // },
+      // pool: config.pool
     }
   );
 }
