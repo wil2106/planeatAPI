@@ -5,13 +5,19 @@
     "database": "5XNzHryt72",
     "host": "remotemysql.com",
     "dialect": "mysql",
-    "operatorsAliases": false
+    "operatorsAliases": false,
+    "pool": {
+      "max": 10,
+      "min": 0,
+      "acquire": 30000,
+      "idle": 10000
+    }
   },
   "test": {
-    "username": "5XNzHryt72",
-    "password": "w9Pq7D4il6",
-    "database": "5XNzHryt72",
-    "host": "remotemysql.com",
+    "username": "root",
+    "password": "",
+    "database": "planeat",
+    "host": "localhost:3000",
     "dialect": "mysql",
     "operatorsAliases": false
   },

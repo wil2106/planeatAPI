@@ -1,13 +1,16 @@
 const mysql = require('mysql2')
+const env = process.env.NODE_ENV || 'test';
+const config = require(__dirname + '/../config/config.json')[env];
 
 let connection = null
 
 const initConnection = () => {
-    connection = mysql.createConnection({
-        host: 'remotemysql.com',
-        user: '5XNzHryt72',
-        password: 'w9Pq7D4il6',
-        database: '5XNzHryt72',
+    connection = mysql.createPool({
+        connectionLimit: 10,
+        host: config.host,
+        user: config.username,
+        password: config.password,
+        database: config.database,
         port: 3306
     })
 }
