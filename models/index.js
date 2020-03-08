@@ -21,7 +21,7 @@ if (config.use_env_variable) {
       // dialectOptions: {
       //   socketPath: config.dialectOptions.socketPath
       // },
-      // pool: config.pool
+      pool: config.pool
     }
   );
 }
