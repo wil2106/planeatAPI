@@ -22,11 +22,14 @@
     "operatorsAliases": false
   },
   "production": {
-    "username": "5XNzHryt72",
-    "password": "w9Pq7D4il6",
-    "database": "5XNzHryt72",
-    "host": "remotemysql.com",
+    "username": "wil2106",
+    "password": 6995,
+    "database": "planeat_db",
+    "host": "/cloudsql/planeat-nodejs-backend:europe-west1:planeat-my-sql-instance",
     "dialect": "mysql",
+    "dialectOptions": {
+      "socketPath": "/cloudsql/planeat-nodejs-backend:europe-west1:planeat-my-sql-instance"
+    },
     "operatorsAliases": false
   }
 }
