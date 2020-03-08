@@ -21,23 +21,6 @@
     "dialect": "mysql",
     "operatorsAliases": false
   },
-  "production": {
-    "username": "wil2106",
-    "password": 6995,
-    "database": "planeat_db",
-    "host": "/cloudsql/planeat-nodejs-backend:europe-west1:planeat-my-sql-instance",
-    "dialect": "mysql",
-    "dialectOptions": {
-      "socketPath": "/cloudsql/planeat-nodejs-backend:europe-west1:planeat-my-sql-instance"
-    },
-    "operatorsAliases": false,
-    "pool": {
-      "max": 10,
-      "min": 0,
-      "acquire": 30000,
-      "idle": 10000
-    }
-  },
   "small": {
     "host": "db4free.net",
     "port": 3306,
