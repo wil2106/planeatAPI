@@ -9,22 +9,24 @@ const oAuthModel = require('./authorization/accessTokenModel')(userDBHelper, bea
 
 const app = express()
 
+//Express settings
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+  extended: true
+}))
+
 //OAuth2 api settings
 app.oauth = oAuth2Server({
   model: oAuthModel,
   grants: ['password'],
   debug: true
 })
+app.use(app.oauth.errorHandler())
 const authRoutesMethods = require('./authorization/authRoutesMethods')(userDBHelper)
 const authRouter = require('./authorization/authRouter')(express.Router(), app, authRoutesMethods)
 
-//Express settings
-app.use('/auth', authRouter)
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(app.oauth.errorHandler())
-
 //Routing
+app.use('/auth', authRouter)
 require('./routes')(app)
 
 //Start server

@@ -17,7 +17,7 @@
     "username": "root",
     "password": "",
     "database": "planeat",
-    "host": "localhost:3000",
+    "host": "localhost",
     "dialect": "mysql",
     "operatorsAliases": false
   },

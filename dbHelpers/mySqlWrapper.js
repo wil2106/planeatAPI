@@ -5,12 +5,12 @@ const config = require(__dirname + '/../config/config.json')[env];
 let connection = null
 
 const initConnection = () => {
-    connection = mysql.createPool({
+    connection = mysql.createConnection({
         connectionLimit: 10,
-        host: config.host,
-        user: config.username,
-        password: config.password,
-        database: config.database,
+        host: `${config.host}`,
+        user: `${config.username}`,
+        password: `${config.password}`,
+        database: `${config.database}`,
         port: 3306
     })
 }
