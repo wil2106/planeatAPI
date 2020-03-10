@@ -5,7 +5,8 @@ module.exports = function(sequelize, DataTypes) {
     ingredient_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     quantity: {
       type: DataTypes.FLOAT,

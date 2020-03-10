@@ -1,6 +1,7 @@
 const productRoutes = require('./products')
 const recipeRoutes = require('./recipes')
 const planningRoutes = require('./planning')
+const shoppingRoutes = require('./shopping')
 const usersRoutes = require('./users')
 
 // const okta = require('@okta/okta-sdk-nodejs');
@@ -29,11 +30,12 @@ module.exports = (app) => {
     //     }
     // })
     //Add routing for all routes
-    app.use('/products', app.oauth.authorise(), productRoutes);
-    app.use('/recipes', app.oauth.authorise(), recipeRoutes);
-    app.use('/planning', app.oauth.authorise(), planningRoutes);
+    app.use('/products', app.oauth.authorise(), productRoutes)
+    app.use('/recipes', app.oauth.authorise(), recipeRoutes)
+    app.use('/planningMeals', app.oauth.authorise(), planningRoutes)
+    app.use('/shoppingLists', app.oauth.authorise(), shoppingRoutes)
     //Add routing for profile routes
-    app.use('/users', app.oauth.authorise(), usersRoutes);
+    app.use('/users', app.oauth.authorise(), usersRoutes)
 
 
     //User section

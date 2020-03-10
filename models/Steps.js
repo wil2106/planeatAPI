@@ -5,7 +5,8 @@ module.exports = function(sequelize, DataTypes) {
     step_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     step_order_number: {
       type: DataTypes.INTEGER(11),

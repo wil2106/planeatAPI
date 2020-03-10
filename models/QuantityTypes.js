@@ -5,7 +5,8 @@ module.exports = function(sequelize, DataTypes) {
     quantitytype_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     quantitytype_name: {
       type: DataTypes.STRING(50),

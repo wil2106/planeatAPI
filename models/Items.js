@@ -6,6 +6,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
+      autoIncrement: true,
       references: {
         model: 'Articles',
         key: 'article_id'

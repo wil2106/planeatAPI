@@ -8,11 +8,11 @@ const initConnection = () => {
         // user: process.env.DB_USER,
         // password: process.env.DB_PASSWORD,
         // database: process.env.DB_DATABASE,
-        host: 'remotemysql.com',
-        user: '5XNzHryt72',
-        password: 'w9Pq7D4il6',
-        database: '5XNzHryt72',
-        port: 3306
+        host: 'localhost',
+        port: 3308,
+        user: 'root',
+        password: '',
+        database: 'planeatdb'
     })
 }
 
