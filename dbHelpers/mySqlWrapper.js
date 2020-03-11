@@ -1,5 +1,5 @@
 const mysql = require('mysql2')
-const config = require(__dirname + '/../config/config.json')['production'];
+const config = require(__dirname + '/../config/config');
 
 let connection = null
 
