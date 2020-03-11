@@ -4,6 +4,10 @@ const config = require(__dirname + '/../config/config');
 let connection = null
 
 const initConnection = () => {
+    console.log(config.host)
+    console.log(config.username)
+    console.log(config.password)
+    console.log(config.database)
     connection = mysql.createConnection({
         connectionLimit: 10,
         host: `${config.host}`,
