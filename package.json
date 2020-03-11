@@ -1,0 +1,33 @@
+{
+  "name": "planeat-nodejs-backend",
+  "version": "0.0.1",
+  "description": "Planeat backend",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "start:": "nodemon server.js"
+  },
+  "engines": {
+    "node": "12.x.x"
+  },
+  "dependencies": {
+    "consolidate": "^0.15.1",
+    "express": "^4.17.1",
+    "handlebars": "^4.7.2",
+    "btoa": "^1.2.1",
+    "dotenv": "^6.0.0",
+    "epilogue": "^0.7.1",
+    "mysql2": "^2.1.0",
+    "request-promise": "^4.2.2",
+    "sequelize": "^5.21.3",
+    "sqlite3": "^4.0.2",
+    "util": "^0.11.0",
+    "node-oauth2-server": "2.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "nodemon": "^2.0.2"
+  },
+  "private": true
+}
