@@ -1,5 +1,7 @@
 require('dotenv').config()
 
+console.log(process.env.DB_USER)
+
 const envVar = {
     username: process.env.DB_USER,
     password: process.env.DB_PASS,
