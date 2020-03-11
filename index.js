@@ -7,7 +7,10 @@ const userDBHelper = require('./dbHelpers/userDBHelper')(mySqlConnection)
 const oAuth2Server = require('node-oauth2-server')
 const oAuthModel = require('./authorization/accessTokenModel')(userDBHelper, bearerTokenDBHelper)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fb987c93f81b62140c30a54af597dddf49a37575
 const app = express()
 
 //Express settings

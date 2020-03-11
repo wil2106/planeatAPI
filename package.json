@@ -5,13 +5,17 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
+<<<<<<< HEAD
     "prestart": "node getEnv",
+=======
+>>>>>>> fb987c93f81b62140c30a54af597dddf49a37575
     "start:": "nodemon server.js"
   },
   "engines": {
     "node": "12.x.x"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@google-cloud/storage": "^4.5.0",
     "btoa": "^1.2.1",
     "consolidate": "^0.15.1",
@@ -25,6 +29,20 @@
     "sequelize": "^5.21.3",
     "sqlite3": "^4.0.2",
     "util": "^0.11.0"
+=======
+    "consolidate": "^0.15.1",
+    "express": "^4.17.1",
+    "handlebars": "^4.7.2",
+    "btoa": "^1.2.1",
+    "dotenv": "^6.0.0",
+    "epilogue": "^0.7.1",
+    "mysql2": "^2.1.0",
+    "request-promise": "^4.2.2",
+    "sequelize": "^5.21.3",
+    "sqlite3": "^4.0.2",
+    "util": "^0.11.0",
+    "node-oauth2-server": "2.4.0"
+>>>>>>> fb987c93f81b62140c30a54af597dddf49a37575
   },
   "devDependencies": {
     "eslint": "^5.12.0",
