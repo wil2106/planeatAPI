@@ -1,3 +1,29 @@
+const fs = require('fs')
+
+const dotEnvExists = fs.existsSync('.env')
+if (dotEnvExists) {
+    console.log('getEnv.js: .env exists')
+    process.exit()
+}
+
+//On Google Cloud Platform authentification is handled for us
+const gcs = require('@google-cloud/storage')()
+
+const bucketName = 'envvars_planeat'
+console.log(`Downloading .env from bucket "${bucketName}"`)
+gcs
+    .bucket(bucketName)
+    .file('.env')
+    .download({ destination: '.env' })
+    .then(() => {
+        console.info('getEnv.js: .env downloaded successfully')
+    })
+    .catch(e => {
+        console.error(`getEnv.js: There was an error: ${JSON.stringify(e, undefined, 2)}`)
+    })
+
+
+
 require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -6,6 +32,7 @@ const bearerTokenDBHelper = require('./dbHelpers/accessTokenDBHelper')(mySqlConn
 const userDBHelper = require('./dbHelpers/userDBHelper')(mySqlConnection)
 const oAuth2Server = require('node-oauth2-server')
 const oAuthModel = require('./authorization/accessTokenModel')(userDBHelper, bearerTokenDBHelper)
+
 
 const app = express()
 
