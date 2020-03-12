@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
+    "prestart:": "node getEnv.js",
     "start:": "nodemon server.js"
   },
   "engines": {
