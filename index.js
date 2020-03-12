@@ -1,12 +1,3 @@
-const fs = require('fs')
-
-const dotEnvExists = fs.existsSync('.env')
-if (dotEnvExists) {
-    console.log('getEnv.js: .env exists')
-    process.exit()
-}
-
-//On Google Cloud Platform authentification is handled for us
 const gcs = require('@google-cloud/storage')()
 
 const bucketName = 'envvars_planeat'
@@ -21,8 +12,6 @@ gcs
     .catch(e => {
         console.error(`getEnv.js: There was an error: ${JSON.stringify(e, undefined, 2)}`)
     })
-
-
 
 require('dotenv').config()
 const express = require('express')
