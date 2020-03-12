@@ -10,6 +10,7 @@ steps:
     - 'CLOUD_SQL_CONNECTION_NAME=${_CLOUD_SQL_CONNECTION_NAME}'
     - 'DB_DATABASE=${_DB_DATABASE}'
     - 'DB_HOST=${_DB_HOST}'
+    - 'DB_PASS=${_DB_PASS}'
     - 'DB_PORT=${_DB_PORT}'
     - 'DB_USER=${_DB_USER}'
 - name: "gcr.io/cloud-builders/gcloud"
