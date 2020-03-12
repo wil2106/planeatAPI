@@ -2,7 +2,7 @@ const {Datastore} = require('@google-cloud/datastore');
 const datastore = new Datastore();
 //const query = datastore.createQuery('Task').filter('done', '=', false);
 datastore.get('DB_PASS', function(err, entity) {
-  console.log(`DB_PASS value: ${JSON.stringify(query)}`)
+  console.log(`DB_PASS value: ${JSON.stringify(entity)}`)
 })
 
 
