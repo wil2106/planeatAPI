@@ -3,15 +3,11 @@ const datastore = new Datastore();
 const query = datastore.createQuery('env').filter('name', '=', 'DB_PASS');
 
 async function ds() {
-  await datastore.runQuery(query)
-  .then(results => {
-     console.log(results)
-   })
-  .catch(err => {
-    console.log('ERROR:', err)
-  })
+  console.log("trying to retrieve the fucking env veriables")
+  const results = await datastore.runQuery(query)
+  console.log(`####### Env : ${results}`)
 }
-console.log("trying to retrieve the fucking env veriables")
+
 ds()
 
 require('dotenv').config()
