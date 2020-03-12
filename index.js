@@ -1,17 +1,16 @@
-const gcs = require('@google-cloud/storage')()
+const {Storage} = require('@google-cloud/storage');
+const storage = new Storage();
 
-const bucketName = 'envvars_planeat'
-console.log(`Downloading .env from bucket "${bucketName}"`)
-gcs
-    .bucket(bucketName)
-    .file('.env')
-    .download({ destination: '.env' })
-    .then(() => {
-        console.info('getEnv.js: .env downloaded successfully')
-    })
-    .catch(e => {
-        console.error(`getEnv.js: There was an error: ${JSON.stringify(e, undefined, 2)}`)
-    })
+storage
+      .bucket('envvars_planeat')
+      .file('.env')
+      .download({ destination: '.env' })
+      .then(() => {
+        console.info('.env downloaded successfully')
+      })
+      .catch(e => {
+        console.error(`There was an error downloading .env: ${JSON.stringify(e, undefined, 2)}`)
+      })
 
 require('dotenv').config()
 const express = require('express')
