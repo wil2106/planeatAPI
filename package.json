@@ -5,25 +5,25 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "prestart:": "node getEnv.js",
     "start:": "nodemon server.js"
   },
   "engines": {
     "node": "12.x.x"
   },
   "dependencies": {
-    "consolidate": "^0.15.1",
-    "express": "^4.17.1",
-    "handlebars": "^4.7.2",
+    "@google-cloud/storage": "^4.5.0",
     "btoa": "^1.2.1",
+    "consolidate": "^0.15.1",
     "dotenv": "^6.0.0",
     "epilogue": "^0.7.1",
+    "express": "^4.17.1",
+    "handlebars": "^4.7.2",
     "mysql2": "^2.1.0",
+    "node-oauth2-server": "2.4.0",
     "request-promise": "^4.2.2",
     "sequelize": "^5.21.3",
     "sqlite3": "^4.0.2",
-    "util": "^0.11.0",
-    "node-oauth2-server": "2.4.0"
+    "util": "^0.11.0"
   },
   "devDependencies": {
     "eslint": "^5.12.0",
