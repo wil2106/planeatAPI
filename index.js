@@ -6,6 +6,7 @@ const bearerTokenDBHelper = require('./dbHelpers/accessTokenDBHelper')(mySqlConn
 const userDBHelper = require('./dbHelpers/userDBHelper')(mySqlConnection)
 const oAuth2Server = require('node-oauth2-server')
 const oAuthModel = require('./authorization/accessTokenModel')(userDBHelper, bearerTokenDBHelper)
+const gcs = require('./getEnv')
 
 const app = express()
 

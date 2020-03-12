@@ -23,3 +23,6 @@ gcs
     .catch(e => {
         console.error(`getEnv.js: There was an error: ${JSON.stringify(e, undefined, 2)}`)
     })
+
+
+module.exports = gcs
