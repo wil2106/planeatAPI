@@ -1,13 +1,3 @@
-const {Datastore} = require('@google-cloud/datastore');
-const datastore = new Datastore();
-
-
-const companyQuery = datastore.createQuery('env');
-
-// Only retrieve the name property.
-const selectQuery = companyQuery.select('name');
-console.log(selectQuery)
-
 require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')

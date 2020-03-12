@@ -1,6 +1,18 @@
 steps:
 - name: 'gcr.io/cloud-builders/npm'
   args: ['install']
+- name: 'gcr.io/cloud-builders/npm'
+  args: ["run", "create-env"]
+  env:
+    - 'CLOUD_DB_NAME=${_CLOUD_DB_NAME}'
+    - 'CLOUD_DB_PASS=${_CLOUD_DB_PASS}'
+    - 'CLOUD_DB_USER=${_CLOUD_DB_USER}'
+    - 'CLOUD_SQL_CONNECTION_NAME=${_CLOUD_SQL_CONNECTION_NAME}'
+    - 'DB_DATABASE=${_DB_DATABASE}'
+    - 'DB_HOST=${_DB_HOST}'
+    - 'DB_PASS=${DB_PASS}'
+    - 'DB_PORT=${_DB_PORT}'
+    - 'DB_USER=${_DB_USER}'
 - name: "gcr.io/cloud-builders/gcloud"
   args: ["app", "deploy"]
 timeout: "1600s"

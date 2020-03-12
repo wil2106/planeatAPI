@@ -3,10 +3,5 @@ instance_class: F1
 automatic_scaling:
   max_instances: 1 
   min_instances: 0
-env_variables:
-    DB_USER: wil2106
-    DB_PASS: 6995
-    DB_NAME: planeat_db
-    CLOUD_SQL_CONNECTION_NAME: planeat-nodejs-backend:europe-west1:planeat-my-sql-instance
 beta_settings:
     cloud_sql_instances: planeat-nodejs-backend:europe-west1:planeat-my-sql-instance
