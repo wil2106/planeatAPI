@@ -1,11 +1,10 @@
 const {Storage} = require('@google-cloud/storage');
 const storage = new Storage();
 
-console.log('test' + storage)
 storage
       .bucket('envvars_planeat')
       .file('.env')
-      .download({ destination: '.env' })
+      .download({ destination: './.env' })
       .then(() => {
         console.log('.env downloaded successfully')
       })
