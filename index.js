@@ -11,6 +11,8 @@ async function ds() {
     console.log('ERROR:', err)
   })
 }
+console.log("trying to retrieve the fucking env veriables")
+ds()
 
 require('dotenv').config()
 const express = require('express')
