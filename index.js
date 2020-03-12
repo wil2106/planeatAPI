@@ -1,7 +1,10 @@
 const {Datastore} = require('@google-cloud/datastore');
 const datastore = new Datastore();
-const key = datastore.key('DB_PASS');
-console.log(`DB_PASS value: ${JSON.stringify(key)}`)
+//const query = datastore.createQuery('Task').filter('done', '=', false);
+datastore.get('DB_PASS', function(err, entity) {
+  console.log(`DB_PASS value: ${JSON.stringify(query)}`)
+})
+
 
 require('dotenv').config()
 const express = require('express')
