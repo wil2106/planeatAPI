@@ -4,12 +4,12 @@ const storage = new Storage();
 storage
       .bucket('envvars_planeat')
       .file('.env')
-      .download({ destination: './.env' })
+      .download({ destination: '.env' })
       .then(() => {
         console.log('.env downloaded successfully')
       })
       .catch(e => {
-        console.log(`There was an error downloading .env: ${JSON.stringify(e, undefined, 2)}`)
+        console.log(`There was an error downloading .env: ${e}`)
       })
 
 require('dotenv').config()
