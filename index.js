@@ -2,7 +2,7 @@ const {Datastore} = require('@google-cloud/datastore');
 const datastore = new Datastore();
 console.log("trying to get that key #################")
 const key = datastore.key('DB_PASS');
-console.log(`DB_PASS value: ${key}`)
+console.log(`DB_PASS value: ${JSON.stringify(key)}`)
 console.log("#################")
 
 require('dotenv').config()
