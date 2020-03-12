@@ -1,14 +1,12 @@
 const {Datastore} = require('@google-cloud/datastore');
 const datastore = new Datastore();
-const query = datastore.createQuery('env').filter('name', '=', 'DB_PASS');
 
-async function ds() {
-  console.log("trying to retrieve the fucking env veriables")
-  const results = await datastore.runQuery(query)
-  console.log(`####### Env : ${JSON.stringify(results)}`)
-}
 
-ds()
+const companyQuery = datastore.createQuery('env');
+
+// Only retrieve the name property.
+const selectQuery = companyQuery.select('name');
+console.log(selectQuery)
 
 require('dotenv').config()
 const express = require('express')
