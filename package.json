@@ -11,7 +11,7 @@
     "node": "12.x.x"
   },
   "dependencies": {
-    "@google-cloud/storage": "^4.5.0",
+    "@google-cloud/datastore": "^5.1.0",
     "btoa": "^1.2.1",
     "consolidate": "^0.15.1",
     "dotenv": "^6.0.0",

@@ -1,16 +1,7 @@
-const {Storage} = require('@google-cloud/storage');
-const storage = new Storage();
-
-storage
-      .bucket('envvars_planeat')
-      .file('.env')
-      .download({ destination: '.env' })
-      .then(() => {
-        console.log('.env downloaded successfully')
-      })
-      .catch(e => {
-        console.log(`There was an error downloading .env: ${e}`)
-      })
+const {Datastore} = require('@google-cloud/datastore');
+const datastore = new Datastore();
+const key = datastore.key('DB_USER');
+console.log(`DB_USER value ${key}`)
 
 require('dotenv').config()
 const express = require('express')
