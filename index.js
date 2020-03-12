@@ -5,7 +5,7 @@ const query = datastore.createQuery('env').filter('name', '=', 'DB_PASS');
 async function ds() {
   console.log("trying to retrieve the fucking env veriables")
   const results = await datastore.runQuery(query)
-  console.log(`####### Env : ${results}`)
+  console.log(`####### Env : ${JSON.stringify(results)}`)
 }
 
 ds()
