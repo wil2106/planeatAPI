@@ -1,12 +1,13 @@
 const {Datastore} = require('@google-cloud/datastore');
 const datastore = new Datastore();
-const key = datastore.key(['env', 'DB_PASS']);
-
-await datastore.get(key)
+const query = datastore.createQuery('env').filter('name', '=', 'DB_PASS');
+datastore
+  .runQuery(query)
   .then(results => {
-    console.log(results);
+     console.log(results)
+   })
+  .catch(err => {console.error('ERROR:', err)
   })
-  .catch(err => { console.error('ERROR:', err); });
 
 require('dotenv').config()
 const express = require('express')
