@@ -30,7 +30,7 @@ const query = (queryString, callback) => {
             callback(createDataResponseObject(error, results))
         })
     } catch (err) {
-        console.error(err)
+        console.error(`[mySqlWrapper.js - query() ]: ${err}`)
     }
 
 }
