@@ -7,10 +7,9 @@ const initConnection = () => {
     connection = mysql.createConnection({
         connectionLimit: 10,
         host: `${config.host}`,
-        user: `${config.cloud_username}`,
-        password: `${config.cloud_password}`,
-        database: `${config.cloud_database}`,
-        socketPath: `/cloudsql/${config.cloud_connectionName}`,
+        user: `${config.username}`,
+        password: `${config.password}`,
+        database: `${config.database}`,
         port: 3306
     })
 }
