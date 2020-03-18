@@ -7,9 +7,10 @@ const initConnection = () => {
     connection = mysql.createConnection({
         connectionLimit: 10,
         host: `${config.host}`,
-        user: `${config.username}`,
-        password: `${config.password}`,
-        database: `${config.database}`,
+        user: `${config.cloud_username}`,
+        password: `${config.cloud_password}`,
+        database: `${config.cloud_database}`,
+        socketPath: `/cloudsql/${config.cloud_connectionName}`,
         port: 3306
     })
 }
@@ -30,7 +31,7 @@ const query = (queryString, callback) => {
             callback(createDataResponseObject(error, results))
         })
     } catch (err) {
-        console.error(`[mySqlWrapper.js - query() ]: ${err}`)
+        console.error(err)
     }
 
 }
