@@ -28,7 +28,7 @@ PARAMETERS | Description
 -----------| -----------
 __Username__ | email: string(200)
 __password__ | string(100, TODO: max 16 chars, + regex filter)
-__grant-type__ | default: password
+__grant_type__ | default: password
 __client_id__ | unset, any value but null will work
 __client_secret__ | same as above
 
