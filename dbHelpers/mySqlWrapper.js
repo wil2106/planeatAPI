@@ -4,10 +4,6 @@ const config = require(__dirname + '/../config/config');
 let connection = null
 
 const initConnection = () => {
-    console.log(config.cloud_username)
-    console.log(config.cloud_password)
-    console.log(config.cloud_database)
-    console.log(config.cloud_connectionName)
     connection = mysql.createConnection({
         connectionLimit: 10,
         host: `${config.host}`,

@@ -9,7 +9,7 @@ const envVar = {
     cloud_username: process.env.CLOUD_DB_USER,
     cloud_password: process.env.CLOUD_DB_PASS,
     cloud_database: process.env.CLOUD_DB_NAME,
-    cloud_connectionName: CLOUD_SQL_CONNECTION_NAME
+    cloud_connectionName: process.env.CLOUD_SQL_CONNECTION_NAME
 }
 
 module.exports = envVar
