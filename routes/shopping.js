@@ -9,9 +9,9 @@ router.use((req, res, next) => {
 //Define routes
 router.get('/', controllers.shopping.getAllShoppingLists)
 router.get('/:shoppinglist_id/details', controllers.shopping.getShoppingListDetails)
-//router.post('/create', controllers.shopping.addNewShoppingList)
-//router.put('/:shoppinglist_id/update', controllers.shopping.updateShoppingList)
-//router.delete('/:shoppinglist_id/delete', controllers.shopping.deleteList)
+router.post('/', controllers.shopping.addNewShoppingList)
+router.put('/', controllers.shopping.updateShoppingList)
+router.delete('/', controllers.shopping.deleteShoppingList)
 router.get('/info', (req, res) => res.status(200).send({
     message: "ShoppingList info route"
 }))

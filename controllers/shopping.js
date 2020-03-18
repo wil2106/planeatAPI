@@ -53,5 +53,81 @@ module.exports = {
         })
         .then(success => res.status(200).json(success))
         .catch(error => res.status(400).json(error.message))
+    },
+    async addNewShoppingList(req, res) {
+        const { user_id, shoppinglist_name, shoppinglist_start_date,
+            shoppinglist_end_date, articles } = req.body
+
+        return ShoppingLists.create({
+            shoppinglist_name: shoppinglist_name,
+            user_id: user_id,
+            shoppinglist_start_date: shoppinglist_start_date,
+            shoppinglist_end_date: shoppinglist_end_date
+        }).then((result) => {
+            articles.forEach((item) => {
+                Items.create({
+                    article_id: item.article_id,
+                    shoppinglist_id: result.shoppinglist_id,
+                    quantity: item.quantity
+                })
+            })
+            return res.status(200).json(result)
+        })
+        .catch(error => res.status(400).json(error.message))
+    },
+    async updateShoppingList(req, res) {
+        const { shoppinglist_id, shoppinglist_name, shoppinglist_start_date,
+            shoppinglist_end_date, articles } = req.body
+        return ShoppingLists
+        .update({
+            shoppinglist_name: shoppinglist_name,
+            shoppinglist_start_date: shoppinglist_start_date,
+            shoppinglist_end_date: shoppinglist_end_date },
+            { where: {
+                shoppinglist_id: shoppinglist_id }
+        })
+        .then(success => {
+            articles.forEach((item) => {
+                switch(item.action) {
+                    case "insert":
+                        Items.create({
+                            article_id: item.article_id,
+                            shoppinglist_id: shoppinglist_id,
+                            quantity: item.quantity
+                        })
+                        break;
+                    case "update":
+                        Items
+                        .update({ quantity: item.quantity },
+                            { where: {
+                                article_id: item.article_id,
+                                shoppinglist_id: shoppinglist_id }
+                        })
+                        break;
+                    case "delete":
+                        Items.destroy({
+                            where: {
+                                article_id: item.article_id,
+                                shoppinglist_id: shoppinglist_id,
+                            }
+                        })
+                        break;
+                }
+            })
+            return res.status(200).json({message: "Shopping List "+shoppinglist_id+" successfully updated"})
+        })
+        .catch(error => res.status(400).json(error.message))
+    },
+    async deleteShoppingList(req, res) {
+        const { shoppinglist_id } = req.body
+        return ShoppingLists.destroy({
+            where: {
+                shoppinglist_id: shoppinglist_id
+            }
+        })
+        .then(res.status(200).send({
+            message: "Shopping List "+shoppinglist_id+" successfully deleted"
+        }))
+        .catch(error => res.status(400).json(error.message))
     }
 }

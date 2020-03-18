@@ -26,7 +26,7 @@ module.exports = {
         .catch(error => res.status(400).json(error.message))
     },
     async addNewPlannedMeal(req, res) {
-        const { date, user_id, recipe_id, mealtype_id  } = req.body
+        const { date, user_id, recipe_id, mealtype_id } = req.body
         return Meals.create({
             date: date,
             user_id: user_id,
