@@ -43,3 +43,91 @@ Any internal data will require an user token to grant accessibility.
 > Token: XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 ![Auth](https://i.imgur.com/2AgCjG3.png)
+
+## Endpoints
+
+### Products
+
+> GET - /products 
+
+Parameters | Description |
+-----------| ----------- |
+/  | /
+
+> GET - /products/:id  
+
+Parameters | Description |
+-----------| ----------- |
+id  | Integer
+Example: GET - /products/1
+
+### Recipes
+
+> GET - /recipes  
+
+Parameters | Description |
+-----------| ----------- |
+/  | /
+
+> GET - /recipes/search  
+
+Content-Type: JSON
+
+Parameters | Description |
+-----------| ----------- |
+keywords  | Search keywords |
+Example: { "keywords": "pates" }
+
+> GET - /recipes/:id  
+
+Parameters | Description |
+-----------| ----------- |
+ID  | Integer |
+Example: GET - /recipes/1
+
+> GET - /recipes/:id/details  
+
+Parameters | Description |
+-----------| ----------- |
+ID  | Integer |
+Example: GET - /recipes/1/details
+
+> POST - /recipes/:id/rate
+
+Parameters | Description |
+-----------| ----------- |
+ID  | Integer
+
+Content-type: JSON
+Parameters | Description |
+-----------| ----------- |
+user_id  | Integer, user ID|
+rate | Rating, from 0 to 10 |
+Example: { "user_id": 1, "rate": 5 }
+
+### Planning
+
+> GET - /planning
+
+Content-type: JSON
+Parameters | Description |
+-----------| ----------- |
+user_id  | Integer
+Example: { "user_id": 1 }
+
+> POST - /planning  
+
+Content-type: JSON
+Parameters | Description |
+-----------| ----------- |
+date  | Javascript : new Date() object |
+user_id | Integer
+recipe_id | Integer
+mealtype_id | Integer: 1,2,3 |
+
+> DELETE - /planning  
+
+Content-type: JSON
+Parameters | Description |
+-----------| ----------- |
+meal_id  | Integer
