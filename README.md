@@ -52,13 +52,14 @@ Any internal data will require an user token to grant accessibility.
 
 Parameters | Description |
 -----------| ----------- |
-/  | /
+__/__  | /|
 
 > GET - /products/:id  
 
 Parameters | Description |
 -----------| ----------- |
-id  | Integer
+__id__  | Integer|
+
 Example: GET - /products/1
 
 ### Recipes
@@ -67,7 +68,8 @@ Example: GET - /products/1
 
 Parameters | Description |
 -----------| ----------- |
-/  | /
+__/__  | /|
+
 
 > GET - /recipes/search  
 
@@ -75,34 +77,37 @@ Content-Type: JSON
 
 Parameters | Description |
 -----------| ----------- |
-keywords  | Search keywords |
+__keywords__  | Search keywords |
 Example: { "keywords": "pates" }
 
 > GET - /recipes/:id  
 
 Parameters | Description |
 -----------| ----------- |
-ID  | Integer |
+__ID__  | Integer |
+
 Example: GET - /recipes/1
 
 > GET - /recipes/:id/details  
 
 Parameters | Description |
 -----------| ----------- |
-ID  | Integer |
+__ID__  | Integer |
+
 Example: GET - /recipes/1/details
 
 > POST - /recipes/:id/rate
 
 Parameters | Description |
 -----------| ----------- |
-ID  | Integer
+__ID__  | Integer
 
 Content-type: JSON
 Parameters | Description |
 -----------| ----------- |
-user_id  | Integer, user ID|
-rate | Rating, from 0 to 10 |
+__user_id__  | Integer, user ID|
+__rate__ | Rating, from 0 to 10 |
+
 Example: { "user_id": 1, "rate": 5 }
 
 ### Planning
@@ -112,7 +117,7 @@ Example: { "user_id": 1, "rate": 5 }
 Content-type: JSON
 Parameters | Description |
 -----------| ----------- |
-user_id  | Integer
+__user_id__  | Integer |
 Example: { "user_id": 1 }
 
 > POST - /planning  
@@ -120,14 +125,15 @@ Example: { "user_id": 1 }
 Content-type: JSON
 Parameters | Description |
 -----------| ----------- |
-date  | Javascript : new Date() object |
-user_id | Integer
-recipe_id | Integer
-mealtype_id | Integer: 1,2,3 |
+__date__  | Javascript : new Date() object |
+__user_id__ | Integer|
+__recipe_id__ | Integer |
+__mealtype_id__ | Integer: 1,2,3 |
 
 > DELETE - /planning  
 
 Content-type: JSON
 Parameters | Description |
 -----------| ----------- |
-meal_id  | Integer
+__meal_id__  | Integer |
+
