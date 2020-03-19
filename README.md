@@ -78,6 +78,7 @@ Content-Type: JSON
 Parameters | Description |
 -----------| ----------- |
 __keywords__  | Search keywords |
+
 Example: { "keywords": "pates" }
 
 > GET - /recipes/:id  
