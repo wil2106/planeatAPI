@@ -63,6 +63,7 @@ module.exports = {
         const token = req.headers.authorization
         const Bearer = token.split(" ")[1]
         return ProfileInfo.findAll({
+                attributes: ['user_id', 'user_mail', 'user_ispremium'],
                 where: {
                     user_token: Bearer
                 }
