@@ -138,3 +138,13 @@ Parameters | Description |
 -----------| ----------- |
 __meal_id__  | Integer |
 
+### User
+
+> GET - /users/profile  
+
+Content-type: JSON
+Parameters | Description |
+-----------| ----------- |
+__/__  | /|
+
+Note: information is extracted from the Bearer token
