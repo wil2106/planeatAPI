@@ -8,6 +8,7 @@ router.use((req, res, next) => {
 })
 //Define routes
 router.get('/', controllers.profile.modifyProfile)
+router.get('/profile', controllers.profile.getProfile)
 router.get('/info', (req, res) => res.status(200).send({
     message: "Product info route"
 }))

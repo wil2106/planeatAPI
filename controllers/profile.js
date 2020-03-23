@@ -58,5 +58,16 @@ module.exports = {
         } catch (error) {
             res.status(400).json(error.message)
         }
+    },
+    async getProfile(req, res) {
+        const token = req.headers.authorization
+        const Bearer = token.split(" ")[1]
+        return ProfileInfo.findAll({
+                where: {
+                    user_token: Bearer
+                }
+            })
+            .then(user => res.status(200).json(user))
+            .catch(error => res.status(400).json(error.message))
     }
 }

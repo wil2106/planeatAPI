@@ -1,4 +1,5 @@
 /* eslint-disable no-useless-escape */
+const tokenHelper = require('./../dbHelpers/accessTokenDBHelper')
 let userDBHelper
 
 module.exports = injectedUserDBHelper => {
