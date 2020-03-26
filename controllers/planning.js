@@ -16,6 +16,7 @@ module.exports = {
         const {
             user_id
         } = req.body
+        console.log("Planning request: ", user_id)
         return Recipes
             .findAll({
                 include: [{
