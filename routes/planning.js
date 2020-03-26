@@ -7,7 +7,7 @@ router.use((req, res, next) => {
     next()
 })
 //Define routes
-router.get('/getPlans', controllers.planning.getAllPlannedMealsByUser)
+router.get('/', controllers.planning.getAllPlannedMealsByUser)
 router.post('/', controllers.planning.addNewPlannedMeal)
 router.delete('/', controllers.planning.removePlannedMeal)
 router.get('/info', (req, res) => res.status(200).send({
