@@ -79,7 +79,7 @@ Parameters | Description |
 -----------| ----------- |
 __keywords__  | Search keywords |
 
-Example: { "keywords": "pates" }
+Example: /recipes/search?keyword=pates
 
 > GET - /recipes/:id  
 
@@ -119,7 +119,7 @@ Content-type: JSON
 Parameters | Description |
 -----------| ----------- |
 __user_id__  | Integer |
-Example: { "user_id": 1 }
+Example: /recipes?user_id=1
 
 > POST - /planning  
 
@@ -137,6 +137,7 @@ Content-type: JSON
 Parameters | Description |
 -----------| ----------- |
 __meal_id__  | Integer |
+Example: /recipes?meal_id=1
 
 ### User
 
