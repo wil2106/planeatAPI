@@ -119,6 +119,7 @@ Content-type: JSON
 Parameters | Description |
 -----------| ----------- |
 __user_id__  | Integer |
+__date__  | Date: YYYY-MM-DD (required, can be left empty if GET all the meals)|
 Example: /recipes?user_id=1
 
 > POST - /planning  
