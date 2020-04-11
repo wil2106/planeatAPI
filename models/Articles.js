@@ -33,7 +33,7 @@ module.exports = function (sequelize, DataTypes) {
       }
     },
     brand_id: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.FLOAT(11),
       allowNull: false,
       references: {
         model: 'Brands',

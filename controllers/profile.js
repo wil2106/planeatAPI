@@ -11,7 +11,7 @@ module.exports = {
                 user_prenom,
                 user_nom,
                 allergies
-            } = req.params;
+            } = req.query;
             var old_allergies = [];
 
             ProfileInfo.update({

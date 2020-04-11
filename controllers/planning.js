@@ -15,7 +15,7 @@ module.exports = {
     async getAllPlannedMealsByUser(req, res) {
         const {
             user_id
-        } = req.body
+        } = req.query
         console.log("Planning request: ", user_id)
         return Recipes
             .findAll({
@@ -60,7 +60,7 @@ module.exports = {
     async removePlannedMeal(req, res) {
         const {
             meal_id
-        } = req.body
+        } = req.query
         return Meals.destroy({
                 where: {
                     meal_id: meal_id

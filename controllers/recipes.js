@@ -39,7 +39,7 @@ module.exports = {
     async getRecipeByKeyword(req, res) {
         const {
             keyword
-        } = req.body
+        } = req.query
         return Recipes
             .findAll({
                 attributes: ['recipe_name', 'recipe_nb_servings',
