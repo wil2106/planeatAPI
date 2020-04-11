@@ -22,7 +22,7 @@ module.exports = {
                 include: [{
                     model: Meals,
                     as: 'planning',
-                    attributes: ['date'],
+                    attributes: ['date', 'meal_id'],
                     where: {
                         user_id: user_id
                     },

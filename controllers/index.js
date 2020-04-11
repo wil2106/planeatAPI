@@ -1,7 +1,7 @@
 const product = require('./products');
 const recipe = require('./recipes');
 const planning = require('./planning');
-// const shopping = require('./shopping')
+const shopping = require('./shopping')
 const profile = require('./profile');
 
 module.exports = {
@@ -9,5 +9,5 @@ module.exports = {
     recipe,
     planning,
     profile,
-    // shopping,
+    shopping,
 };
