@@ -14,32 +14,61 @@ Meals.belongsTo(MealType, {
 module.exports = {
     async getAllPlannedMealsByUser(req, res) {
         const {
-            user_id
+            user_id,
+            date
         } = req.query
         console.log("Planning request: ", user_id)
-        return Recipes
-            .findAll({
-                include: [{
-                    model: Meals,
-                    as: 'planning',
-                    attributes: ['date', 'meal_id'],
-                    where: {
-                        user_id: user_id
-                    },
+        console.log("Date: ", date)
+        if (date.length === 0) {
+            return Recipes
+                .findAll({
                     include: [{
-                        model: MealType,
-                        as: 'meal_type',
-                        attributes: [
-                            ['mealtype_name', 'name']
-                        ]
-                    }]
-                }],
-                attributes: ['recipe_id', 'recipe_name', 'recipe_nb_servings',
-                    'recipe_prep_time'
-                ]
-            })
-            .then(success => res.status(200).json(success))
-            .catch(error => res.status(400).json(error.message))
+                        model: Meals,
+                        as: 'planning',
+                        attributes: ['date', 'meal_id'],
+                        where: {
+                            user_id: user_id
+                        },
+                        include: [{
+                            model: MealType,
+                            as: 'meal_type',
+                            attributes: [
+                                ['mealtype_name', 'name']
+                            ]
+                        }]
+                    }],
+                    attributes: ['recipe_id', 'recipe_name', 'recipe_nb_servings',
+                        'recipe_prep_time'
+                    ]
+                })
+                .then(success => res.status(200).json(success))
+                .catch(error => res.status(400).json(error.message))
+        } else {
+            return Recipes
+                .findAll({
+                    include: [{
+                        model: Meals,
+                        as: 'planning',
+                        attributes: ['date', 'meal_id'],
+                        where: {
+                            user_id: user_id,
+                            date: date
+                        },
+                        include: [{
+                            model: MealType,
+                            as: 'meal_type',
+                            attributes: [
+                                ['mealtype_name', 'name']
+                            ]
+                        }]
+                    }],
+                    attributes: ['recipe_id', 'recipe_name', 'recipe_nb_servings',
+                        'recipe_prep_time'
+                    ]
+                })
+                .then(success => res.status(200).json(success))
+                .catch(error => res.status(400).json(error.message))
+        }
     },
     async addNewPlannedMeal(req, res) {
         const {
