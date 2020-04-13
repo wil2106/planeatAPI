@@ -137,7 +137,7 @@ __mealtype_id__ | Integer: 1,2,3 |
 Content-type: JSON
 Parameters | Description |
 -----------| ----------- |
-__meal_id__  | Integer |
+__meal_id__  | Integer |  
 Example: /recipes?meal_id=1
 
 ### User
@@ -150,3 +150,73 @@ Parameters | Description |
 __/__  | /|
 
 Note: information is extracted from the Bearer token
+
+
+### ShoppingLists
+
+> GET - /shoppingLists
+
+Content-type: JSON
+Parameters | Description |
+-----------| ----------- |
+__user_id__  | INTEGER|  
+
+Example: /shoppingLists?user_id=1
+
+> GET - /shoppingLists/:shoppinglist_id/details
+
+Content-type: JSON
+Parameters | Description |
+-----------| ----------- |
+__shoppingList_id__  | INTEGER|  
+
+Example: /shoppingLists/1/details
+
+> GET - /shoppingLists/generate
+
+Content-type: JSON
+Parameters | Description |
+-----------| ----------- |
+__user_id__  | INTEGER|
+__shoppinglist_start_date__ | YYYY-MM-DD |
+__shoppinglist_end_date__ | YYYY-MM-DD |
+__lowest_price__ | "true", "false" |
+__shop__ | Empty if __lowest_price__ true, otherwise name of the shop (String)|  
+
+![example_generate](https://i.imgur.com/hdN4K2N.png)
+
+> POST - /shoppingLists
+
+Content-type: JSON
+Parameters | Description |
+-----------| ----------- |
+__user_id__  | INTEGER|
+__shoppinglist_name__ | String |
+__shoppinglist_start_date__ | YYYY-MM-DD |
+__shoppinglist_end_date__ | YYYY-MM-DD |
+__articles__ | Object Article: { "article_id", "shoppinglist_id", "quantity"} |
+
+![post_list](https://i.imgur.com/s8tYraB.png)  
+Note: Example does not work
+
+> PUT - /shoppingLists
+
+Content-type: JSON
+Parameters | Description |
+-----------| ----------- |
+__user_id__  | INTEGER|
+__shoppinglist_name__ | String |
+__shoppinglist_start_date__ | YYYY-MM-DD |
+__shoppinglist_end_date__ | YYYY-MM-DD |
+__articles__ | Object Article: { "article_id", "shoppinglist_id", "quantity"} |
+
+Example: Same as above
+
+> DELETE - /shoppingLists
+
+Content-type: JSON
+Parameters | Description |
+-----------| ----------- |
+__shoppinglist_id__  | INTEGER |
+
+Example: /shoppingLists?shoppinglist_id=1

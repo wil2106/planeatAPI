@@ -181,7 +181,7 @@ module.exports = {
     async deleteShoppingList(req, res) {
         const {
             shoppinglist_id
-        } = req.body
+        } = req.query
         return ShoppingLists.destroy({
                 where: {
                     shoppinglist_id: shoppinglist_id
