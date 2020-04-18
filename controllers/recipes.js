@@ -124,12 +124,14 @@ module.exports = {
             rate
         } = req.body
         return Rating
-            .create({
+            .upsert({
                 recipe_id: recipe_id,
                 user_id: user_id,
                 rate: rate
             })
-            .then(success => res.status(200).json(success))
+            .then(success => res.status(200).json({
+                Result: success
+            }))
             .catch(error => res.status(400).json(error.message))
     },
     async getRating(req, res) {
