@@ -148,5 +148,34 @@ module.exports = {
             })
             .then(success => res.status(200).json(success))
             .catch(error => res.status(400).json(error.message))
+    },
+    async getAverageByRecipe(req, res) {
+        const {
+            recipe_id
+        } = req.params
+        const result = await Rating.findAll({
+                attributes: ['recipe_id', 'rate'],
+                where: {
+                    recipe_id: recipe_id
+                }
+            })
+            .catch(error => res.status(400).json(error.message))
+
+        let average = 0
+
+        result.forEach(element => {
+            average += element.rate
+        })
+
+        if (result.length === 0) {
+            res.status(400).json({
+                error: 'No ratings.'
+            })
+        }
+
+        res.status(200).json({
+            'recipe_id': recipe_id,
+            'mean': average / result.length
+        })
     }
 }
