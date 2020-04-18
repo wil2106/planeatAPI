@@ -4,6 +4,7 @@ const Article = require('../models').Articles
 const Product = require('../models').Products
 const Brand = require('../models').Brands
 const Market = require('../models').Markets
+const QuantityType = require('../models').QuantityTypes
 
 const Sequelize = require('sequelize')
 const index = require('../models/index')
@@ -27,6 +28,11 @@ Article.belongsTo(Brand, {
 Article.belongsTo(Market, {
     foreignKey: 'market_id',
     as: 'market'
+})
+
+Article.belongsTo(QuantityType, {
+    foreignKey: 'quantitytype_id',
+    as: 'quantity_type'
 })
 
 module.exports = {
@@ -61,7 +67,7 @@ module.exports = {
                 include: [{
                     model: Items,
                     as: 'articles',
-                    attributes: ['article_id'],
+                    attributes: ['article_id', 'quantity'],
                     where: {
                         shoppinglist_id: shoppinglist_id
                     },
@@ -87,6 +93,10 @@ module.exports = {
                             attributes: [
                                 ['market_name', 'name']
                             ]
+                        }, {
+                            model: QuantityType,
+                            as: 'quantity_type',
+                            attributes: ['quantitytype_name']
                         }]
                     }
                 }]
