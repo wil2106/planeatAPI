@@ -131,5 +131,22 @@ module.exports = {
             })
             .then(success => res.status(200).json(success))
             .catch(error => res.status(400).json(error.message))
+    },
+    async getRating(req, res) {
+        const {
+            recipe_id
+        } = req.params
+        const {
+            user_id
+        } = req.query
+        return Rating.findAll({
+                attributes: ['recipe_id', 'rate'],
+                where: {
+                    recipe_id: recipe_id,
+                    user_id: user_id
+                }
+            })
+            .then(success => res.status(200).json(success))
+            .catch(error => res.status(400).json(error.message))
     }
 }
