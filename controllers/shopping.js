@@ -52,7 +52,7 @@ module.exports = {
         } = req.params
         const {
             user_id
-        } = req.body
+        } = req.query
         return ShoppingLists
             .findAll({
                 where: {
