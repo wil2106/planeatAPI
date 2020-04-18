@@ -42,7 +42,7 @@ module.exports = {
         } = req.query
         return Recipes
             .findAll({
-                attributes: ['recipe_name', 'recipe_nb_servings',
+                attributes: ['recipe_id', 'recipe_name', 'recipe_nb_servings',
                     'recipe_prep_time', 'recipe_description'
                 ],
                 where: {
