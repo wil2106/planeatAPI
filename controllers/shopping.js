@@ -50,13 +50,10 @@ module.exports = {
         const {
             shoppinglist_id
         } = req.params
-        const {
-            user_id
-        } = req.query
         return ShoppingLists
             .findAll({
                 where: {
-                    user_id: user_id
+                    shoppinglist_id: shoppinglist_id
                 },
                 attributes: ['shoppinglist_id', 'shoppinglist_name',
                     'shoppinglist_start_date', 'shoppinglist_end_date'

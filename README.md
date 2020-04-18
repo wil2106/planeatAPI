@@ -169,9 +169,8 @@ Content-type: JSON
 Parameters | Description |
 -----------| ----------- |
 __shoppingList_id__  | INTEGER|  
-__user_id__ | INTEGER(query) |  
 
-Example: /shoppingLists/1/details?user_id=1
+Example: /shoppingLists/1/details
 
 > GET - /shoppingLists/generate
 
