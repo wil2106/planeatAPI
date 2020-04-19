@@ -1,3 +1,4 @@
+/* eslint-disable promise/no-nesting */
 /* eslint-disable promise/always-return */
 const ShoppingLists = require('../models').ShoppingLists
 const Items = require('../models').Items
@@ -420,20 +421,34 @@ module.exports = {
             articles
         } = req.locals
 
+        //simplify items
+        let optimized_list = {}
+        articles.map(element => element.forEach((item) => {
+            if (!(item.product_id in optimized_list)) {
+                optimized_list[item.product_id] = {
+                    quantity: item.NumberProduct
+                }
+            } else {
+                optimized_list[item.product_id].quantity += item.NumberProduct
+            }
+        }))
+
         return ShoppingLists.create({
                 shoppinglist_name: shoppinglist_name,
                 user_id: user_id,
                 shoppinglist_start_date: shoppinglist_start_date,
                 shoppinglist_end_date: shoppinglist_end_date
             }).then((result) => {
-                articles[0].forEach((item) => {
+                // eslint-disable-next-line array-callback-return
+                Object.keys(optimized_list).forEach((key) => {
                     Items.create({
-                        article_id: item.product_id,
-                        shoppinglist_id: result.shoppinglist_id,
-                        quantity: item.quantity
-                    })
+                            article_id: key,
+                            shoppinglist_id: result.shoppinglist_id,
+                            quantity: optimized_list[key].quantity
+                        })
+                        .catch(error => res.status(400).json(error.message))
                 })
-                return res.status(200).json(result)
+                return res.status(200).json(articles)
             })
             .catch(error => res.status(400).json(error.message))
     }
