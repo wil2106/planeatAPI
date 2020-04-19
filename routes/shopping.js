@@ -9,7 +9,7 @@ router.use((req, res, next) => {
 //Define routes
 router.get('/', controllers.shopping.getAllShoppingLists)
 router.get('/:shoppinglist_id/details', controllers.shopping.getShoppingListDetails)
-router.get('/generate', controllers.shopping.generateShoppingList)
+router.get('/generate', controllers.shopping.generateShoppingList, controllers.shopping.autoUploadList)
 router.post('/', controllers.shopping.addNewShoppingList)
 router.put('/', controllers.shopping.updateShoppingList)
 router.delete('/', controllers.shopping.deleteShoppingList)

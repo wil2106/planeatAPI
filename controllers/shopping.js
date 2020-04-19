@@ -1,3 +1,4 @@
+/* eslint-disable promise/always-return */
 const ShoppingLists = require('../models').ShoppingLists
 const Items = require('../models').Items
 const Article = require('../models').Articles
@@ -199,7 +200,7 @@ module.exports = {
             }))
             .catch(error => res.status(400).json(error.message))
     },
-    async generateShoppingList(req, res) {
+    async generateShoppingList(req, res, next) {
         const {
             user_id,
             shoppinglist_start_date,
@@ -396,7 +397,44 @@ module.exports = {
                 'WHERE Meals.date BETWEEN \'' + shoppinglist_start_date + '\' AND \'' + shoppinglist_end_date + '\' AND Meals.user_id = ' + user_id + '\n' +
                 'GROUP BY Articles.article_id, QuantityTypesIngredients.quantitytype_name\n' +
                 'ORDER BY Products.product_name')
-            .then(success => res.status(200).json(success))
+            .then(success => {
+                const shoppinglist_start_date = new Date().getFullYear() + '-' + new Date().getMonth() + '-' + new Date().getDate()
+                const shoppinglist_end_date = new Date().getFullYear() + '-' + new Date().getMonth() + '-' + (new Date().getDate() + 7)
+                req.locals = {
+                    user_id: user_id,
+                    shoppinglist_name: 'default',
+                    shoppinglist_start_date,
+                    shoppinglist_end_date,
+                    articles: success
+                }
+                next()
+            })
+            .catch(error => res.status(400).json(error.message))
+    },
+    async autoUploadList(req, res) {
+        const {
+            user_id,
+            shoppinglist_name,
+            shoppinglist_start_date,
+            shoppinglist_end_date,
+            articles
+        } = req.locals
+
+        return ShoppingLists.create({
+                shoppinglist_name: shoppinglist_name,
+                user_id: user_id,
+                shoppinglist_start_date: shoppinglist_start_date,
+                shoppinglist_end_date: shoppinglist_end_date
+            }).then((result) => {
+                articles[0].forEach((item) => {
+                    Items.create({
+                        article_id: item.product_id,
+                        shoppinglist_id: result.shoppinglist_id,
+                        quantity: item.quantity
+                    })
+                })
+                return res.status(200).json(result)
+            })
             .catch(error => res.status(400).json(error.message))
     }
 }
